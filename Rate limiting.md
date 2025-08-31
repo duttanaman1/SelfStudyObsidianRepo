@@ -99,7 +99,7 @@ Choose based on use-case: **APIs (token bucket/sliding window), bursty traffic (
 👉 In **Spring Boot**, common choices are:
 
 - **[[Bucket4j]]** (in-memory + Redis adapter) → fine-grained, production-ready.
-- **[[Spring Cloud Gateway RateLimiter]]** ([[Redis]] backend) → for API Gateway style.
+- **[[Spring Cloud Gateway]] RateLimiter** ([[Redis]] backend) → for API Gateway style.
 - **[[Resilience4j RateLimiter]]** → when combined with retries, circuit breakers.
 
 
