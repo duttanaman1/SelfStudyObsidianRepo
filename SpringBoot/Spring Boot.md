@@ -12,4 +12,4 @@ Java Collections
 
 Jackson Annotations Example
 
-[[Q&A]]
+[[SpringBoot/Q&A]]

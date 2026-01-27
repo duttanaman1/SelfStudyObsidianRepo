@@ -20,7 +20,7 @@ The output of the system design phase is typically a detailed design document or
 | **URL**                                                  | Uniform Resource Locator – an address that identifies resources on the internet.                                                                           |
 | **DNS Resolution**                                       | Process of translating a domain name (e.g., google.com) into its corresponding IP address.                                                                 |
 | **Proxy – Forward vs Reverse**                           | Forward proxy sits between client and server (hides client), reverse proxy sits in front of servers (hides backend, adds load balancing/security).         |
-| **API Gateway**                                          | Entry point for APIs in microservices, handling routing, authentication, rate-limiting, and monitoring.                                                    |
+| **API Gateway**                                          | Entry point for APIs in [[Microservices]], handling routing, authentication, [[Rate limiting]], and monitoring.                                            |
 | **Firewalls**                                            | Security systems that control incoming/outgoing network traffic based on rules.                                                                            |
 | **Security – Authentication/Authorization, SSO, Tokens** | Authentication verifies identity, authorization checks permissions, SSO enables one login across apps, tokens (JWT, OAuth) enable secure stateless access. |
 | **Load Balancer**                                        | Distributes traffic across multiple servers to improve availability and scalability.                                                                       |
@@ -44,7 +44,7 @@ The output of the system design phase is typically a detailed design document or
 | **AI/ML**                                                | Artificial Intelligence and Machine Learning – systems that learn and make predictions from data.                                                          |
 | **Generative AI**                                        | AI models that generate content (text, images, audio, code) rather than just analyzing data.                                                               |
 | **LLM**                                                  | Large Language Models – advanced generative AI models trained on huge text corpora (e.g., GPT).                                                            |
-| **Deployment Strategies**                                | Methods like Blue-Green, Canary, Rolling updates to release software with minimal downtime.                                                                |
+| **Deployment Strategies**                                | Methods like [[Blue-Green]], Canary, [[Rolling updates]] to release software with minimal downtime.                                                        |
 | **Physical Datacenters**                                 | On-premises infrastructure hosting servers, networking, and storage.                                                                                       |
 | **Cloud**                                                | On-demand infrastructure and services (IaaS, PaaS, SaaS) delivered over the internet.                                                                      |
 | **Containers**                                           | Lightweight, isolated runtime environments (Docker, Kubernetes) for running applications.                                                                  |
@@ -103,3 +103,4 @@ The output of the system design phase is typically a detailed design document or
   * GoF Design Patterns
   * Common Patterns used in Cloud Systems
   * Common Patterns used in Distributed systsems
+  *

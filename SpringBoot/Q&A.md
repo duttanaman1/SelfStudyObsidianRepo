@@ -1,4 +1,4 @@
-## 1. Core Spring & Spring Boot (Beginner to Advanced)
+## 1. Core Spring & [[Spring Boot]] (Beginner to Advanced)
 
 1. **What is Spring Framework?**  
     A lightweight Java framework for building enterprise-level applications with dependency injection, AOP, and more.
@@ -17,7 +17,7 @@
 8. **What is @EnableAutoConfiguration?**  
     It tells Spring Boot to guess and configure beans based on classpath settings.
 9. ==**How does Spring Boot decide what to auto-configure?**==  
-    It uses `spring.factories` files and conditional annotations like `@ConditionalOnClass`.
+    It uses `spring.factories` files and conditional [[annotations]] like `@ConditionalOnClass`.
 10. **What is the role of** `**application.properties**` **or** `**application.yml**`**?**  
     It holds configuration values like port, DB credentials, etc.
 11. **What is a Bean in Spring?**  
@@ -84,7 +84,7 @@
 20. **What is @Async?**  
     Executes a method in a separate thread asynchronously.
 
-## 3. Spring Data JPA & Transactions
+## 3. Spring Data JPA & [[Transaction]]
 
 1. **What is Spring Data JPA?**  
     A module that simplifies data access using JPA with minimal boilerplate.
@@ -127,7 +127,7 @@
 20. **How do you audit entities in JPA?**  
     Use `@CreatedDate`, `@LastModifiedDate` with `@EntityListeners`.
 
-## 4. Spring Security (Basic to OAuth2/JWT)
+## 4. Spring Security (Basic to [[Oauth 2.0]]/[[JWT]])
 
 1. **What is Spring Security?**  
     A framework for securing Java applications with authentication, authorization, and protection against common attacks.
@@ -462,7 +462,7 @@ Absolutely! Here’s a focused section on the **Spring Cloud Ecosystem** — a
 8. **What is path rewriting in Gateway?**  
     Modify incoming paths before forwarding, using `RewritePath` filter.
 
-### 🛡 Resilience4j (Circuit Breaker, Retry, RateLimiter)
+### 🛡 [[Resilience4j]] ([[Circuit Breaker]], Retry, [[RateLimiter]])
 
 1. **What is Resilience4j?**  
     A fault tolerance library for Java with support for circuit breakers, retries, rate limiting.

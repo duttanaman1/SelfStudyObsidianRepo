@@ -57,7 +57,7 @@ No configuration is universally "right", it depends entirely on your application
 Real-World Systems
 Many distributed databases make explicit PACELC trade-offs:
 
-Cassandra leans toward PA/EL, favoring availability and speed over strict consistency.
+[[Cassandra]] leans toward PA/EL, favoring availability and speed over strict consistency.
 
 Spanner opts for PC/EC, offering strong consistency guarantees at the cost of latency through techniques like TrueTime.
 

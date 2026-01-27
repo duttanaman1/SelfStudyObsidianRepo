@@ -12,7 +12,7 @@
 * Google Drive
 * S3
 * CDN
-* Key-Value Database
+* Key-Value [[Database]]
 * Notification System
 * Type Ahead(Autocomplete) search system
 * Payment service
