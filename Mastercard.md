@@ -1,6 +1,9 @@
+---
+tags:
+  - linker-exclude
+---
 Loyalty Offers
-
-# [[Redis]] Caching
+[[Kafka]], [[Redis]] Caching
 
 Completable Future
 
