@@ -1,3 +1,0 @@
-- ADRs
-- Decision logs
-- Tradeoff framing

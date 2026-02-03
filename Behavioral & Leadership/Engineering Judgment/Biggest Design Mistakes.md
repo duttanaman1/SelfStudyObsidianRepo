@@ -1,5 +1,0 @@
-- Context
-- Decision
-- Why it failed
-- What you learned
-- What you’d do now

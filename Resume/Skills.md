@@ -1,4 +1,0 @@
-[[DevOps]]:
-[[CassendraDB]]
-[[Microservices]]
-[[Micrometer]]

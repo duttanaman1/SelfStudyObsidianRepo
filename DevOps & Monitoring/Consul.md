@@ -1,1 +1,0 @@
-Explain how Service Discovery is implemented by Consul?

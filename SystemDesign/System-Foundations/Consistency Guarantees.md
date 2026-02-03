@@ -1,3 +1,0 @@
-- Strong vs eventual
-- Session guarantees
-- Client-observed consistency

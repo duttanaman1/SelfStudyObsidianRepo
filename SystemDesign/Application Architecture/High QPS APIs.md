@@ -1,4 +1,0 @@
-- Request amplification
-- Latency budgets
-- Backpressure
-- Threading, pooling, async boundaries

@@ -1,3 +1,0 @@
-- Idempotent Consumer
-- Retry interactions
-- API idempotency
