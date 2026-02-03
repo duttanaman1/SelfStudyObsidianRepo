@@ -1,0 +1,4 @@
+- Detection
+- Mitigation
+- Root cause
+- Preventive actions
