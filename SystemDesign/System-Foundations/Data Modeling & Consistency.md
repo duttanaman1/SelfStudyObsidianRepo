@@ -1,0 +1,6 @@
+- Normalization vs denormalization
+- Write-optimized vs read-optimized models
+- Aggregates & ownership boundaries
+- Partition keys and hot partitions
+- Read paths vs write paths
+- How modeling choices force eventual consistency
