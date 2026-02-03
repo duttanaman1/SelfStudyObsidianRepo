@@ -1,0 +1,4 @@
+- Segmentation (historical)
+- CAS + volatile
+- Weak consistency
+- Why size() lies

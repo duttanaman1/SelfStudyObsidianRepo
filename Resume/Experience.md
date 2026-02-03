@@ -1,3 +1,7 @@
+---
+tags:
+  - linker-exclude
+---
 
 Mastercard[^9]
 

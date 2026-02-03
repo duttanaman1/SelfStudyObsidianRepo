@@ -86,6 +86,31 @@ Especially harmful when:
 - Query using **exact partition key**
 - Monitor tombstone metrics (`sstable tombstones scanned`)
 
+___
+## Cassandra Write Process
+
+1. Client sends the request to coordinator node.
+2. Coordinator node determines the target replica based on the partition key
+3. Coordinator sends the write to replicas
+4. Each replicas perform following actions:
+	1. First the write is appended to the commit log (a write ahead log) on disk ensuring durability
+	2. Write is applied to an in-memory structure called Memtable, a write optimized sorted hashmap.
+	3. Send back ACK to Coordinator node once both write to commit log and memtable is successful.
+5. Coordinator node recieves ACK and determine the success based on the consistency level (QUIRUM or ONE)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 [^1]: A distributed algorithm that ensures multiple nodes agree on a single value, even if some nodes fail or messages arrive out of order.
 
