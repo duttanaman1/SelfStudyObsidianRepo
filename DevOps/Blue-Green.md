@@ -1,1 +1,0 @@
-Explain About Blue Green Deployment

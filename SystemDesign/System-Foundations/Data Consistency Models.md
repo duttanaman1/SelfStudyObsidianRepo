@@ -1,0 +1,3 @@
+- Normalization vs denormalization
+- Write amplification
+- Read paths vs write paths

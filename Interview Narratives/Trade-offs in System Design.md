@@ -1,0 +1,6 @@
+- Consistency models
+- Caching
+- Latency vs throughput
+- SQL vs NoSQL
+- Sync vs async
+- Cache vs replica tradeoffs

@@ -1,0 +1,4 @@
+- Data over opinions
+- Writing design docs
+- Disagree & commit
+- Escalation without ego

@@ -1,1 +1,0 @@
-Factory, behaviour, observer, etc patterns
