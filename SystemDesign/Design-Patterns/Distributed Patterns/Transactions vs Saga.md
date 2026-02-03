@@ -1,0 +1,1 @@
+[[Microservices|microservices]], eventual consistency, retries

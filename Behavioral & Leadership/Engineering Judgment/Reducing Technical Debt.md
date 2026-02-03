@@ -1,0 +1,3 @@
+- Intentional vs accidental debt
+- ROI-based cleanup
+- When _not_ to fix debt

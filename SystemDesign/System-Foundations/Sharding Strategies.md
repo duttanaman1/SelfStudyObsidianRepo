@@ -1,0 +1,3 @@
+- Hash vs range vs directory-based
+- Re-sharding
+- Impact on joins, transactions, and consistency
