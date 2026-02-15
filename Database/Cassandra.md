@@ -98,6 +98,7 @@ ___
 	3. Send back ACK to Coordinator node once both write to commit log and memtable is successful.
 5. Coordinator node recieves ACK and determine the success based on the consistency level (QUIRUM or ONE)
 
+![[CAP Theorem#Example Cassandra (Tunable CAP)]]
 
 
 

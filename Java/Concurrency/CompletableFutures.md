@@ -101,5 +101,191 @@ CompletableFuture<Integer> cf =
 
 ```
 
+___
+
+# 1️⃣ `handle()` vs `handleAsync()` vs `whenComplete()`
+
+## 🔹 `handle()`
+- Transforms result
+- Runs on **same thread that completed previous stage**
+- Returns a new value
+
+```
+CompletableFuture<String> future =
+    CompletableFuture.supplyAsync(() -> "data")
+        .handle((res, ex) -> {
+            if (ex != null) return "fallback";
+            return res + " processed";
+        });
+```
+
+✔ Always runs
+✔ Can recover from error
+✔ Produces new result
+
+## 🔹 `handleAsync()`
+- Same as `handle()`
+- But runs in **different thread ([[ForkJoinPool]].commonPool by default)**
+
+`.handleAsync((res, ex) -> res + " processed")`
+
+✔ Offloads heavy transformation
+✔ Prevents blocking previous stage thread
+
+You can also provide executor:
+
+`.handleAsync((res, ex) -> res, executor);`
+
+## 🔹 `whenComplete()`
+
+```
+.whenComplete((res, ex) -> {
+    if (ex != null)
+        log.error("Failed", ex);
+});
+```
+
+✔ Used for logging / metrics
+✔ Result passes through unchanged
+❌ Cannot transform result
+
+## Quick Comparison
+
+|Method|Changes Result?|Recovers Error?|Thread|
+|---|---|---|---|
+|handle|✅ Yes|✅ Yes|Same thread|
+|handleAsync|✅ Yes|✅ Yes|Other thread|
+|whenComplete|❌ No|❌ No|Same thread|
+|whenCompleteAsync|❌ No|❌ No|Other thread|
+
+___
+
+# 2️⃣ Sync vs Async Variants
+
+Example:
+
+`.thenApply() .thenApplyAsync()`
+
+## 🔹 Sync (`thenApply`)
+Runs in **same thread that completed previous stage**
+## 🔹 Async (`thenApplyAsync`)
+Runs in:
+- `ForkJoinPool.commonPool()` by default
+- OR custom executor if provided
+
+Better when:
+- Transformation is heavy
+- Avoid blocking I/O thread
+- Avoid blocking common pool worker
+
+---
+
+### Interview Rule of Thumb
+
+Use:
+
+- Sync for lightweight CPU operations
+- Async for blocking/heavy logic
+
+---
+
+# 3️⃣ Thread Execution Model (Very Important)
+This is where senior engineers shine.
+## Case 1: `supplyAsync()`
+
+`CompletableFuture.supplyAsync(...)`
+
+Runs in:
+
+- `ForkJoinPool.commonPool()`
+    UNLESS custom executor provided.
+
+---
+
+## Case 2: Non-Async Continuation
+
+`supplyAsync(...).thenApply(...)`
+
+Execution depends on **who completes previous stage**.
+
+If previous stage completes in:
+
+- ForkJoin worker thread → `thenApply` runs in same worker thread
+- Manually completed future → runs in caller thread
+
+So:
+👉 Non-async stages execute in thread that completes previous stage.
+
+---
+
+## Case 3: Async Continuation
+
+`.thenApplyAsync(...)`
+
+Always runs in:
+
+- Common pool
+    OR
+    
+- Provided executor
+
+Independent of previous thread.
+
+---
+
+# ⚠️ Very Important Production Insight
+
+If you do this:
+
+`CompletableFuture.supplyAsync(...)     .thenApply(res -> {         Thread.sleep(5000); // blocking         return res;     });`
+
+You are:
+
+❌ Blocking ForkJoin worker
+❌ Reducing parallelism
+❌ Risking thread starvation
+
+Better:
+
+`.thenApplyAsync(res -> heavyWork(), customExecutor)`
+
+---
+
+# 4️⃣ Visual Thread Flow
+
+## Non-Async Chain
+
+`ForkJoin Thread-1    ↓ supplyAsync    ↓ thenApply    ↓ thenCombine`
+
+Same thread continues execution.
+
+---
+
+## Async Chain
+
+`ForkJoin Thread-1    ↓ supplyAsync  ForkJoin Thread-3    ↓ thenApplyAsync`
+
+Switches threads.
+
+---
+
+# 5️⃣ Senior-Level Interview Insight
+CompletableFuture is:
+
+- NOT automatically parallel at every stage
+- Continuations are lazy-triggered
+- Thread choice depends on async vs sync variant
+
+The biggest mistake juniors make:
+
+> Thinking every stage runs in new thread.
+
+It does NOT.
+
+---
+
+# 🎯 Interview-Ready Summary
+
+> “Non-async stages run in the thread that completes the previous stage, while async variants offload to the common pool or a custom executor. `handle()` transforms results and can recover errors, whereas `whenComplete()` is for side-effects only. Understanding this prevents thread starvation and latency amplification.”
 
 > **Adopt `CompletableFuture` for non-blocking, I/O-bound, composable async workflows; avoid it for CPU-bound, simple synchronous flows, or when structured concurrency is required.**

@@ -1,3 +1,7 @@
+---
+tags:
+  - linker-exclude
+---
 ## SQL vs NoSQL[^1]
 
 | Aspect         | SQL (Relational DB)     | NoSQL (Non-relational DB)             |
